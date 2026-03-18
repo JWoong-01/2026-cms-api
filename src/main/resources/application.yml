@@ -13,7 +13,6 @@ spring:
     init:
       mode: embedded
       schema-locations: classpath:db/sql/h2-schema.sql
-      data-locations: classpath:db/sql/h2-data.sql
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:test
@@ -26,10 +25,16 @@ spring:
     properties:
       hibernate:
         default_batch_fetch_size: 100
+        format_sql: true
   threads:
     virtual:
       enabled: on
 
+app:
+  security:
+    jwt:
+      secret: 2sQ6Q0hL9nQeN3aU5xV8kP1mY4rT7cB2wD6jF0zH3sL9vX5n
+      access-token-expiration-seconds: 3600
 
 ## p6spy
 decorator:
