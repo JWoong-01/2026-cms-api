@@ -62,6 +62,7 @@ com.malgn
 
 - API Base URL: `http://localhost:8080`
 - H2 Console: `http://localhost:8080/h2-console`
+- Swagger UI: `http://localhost:8080/swagger-ui.html`
 - JDBC URL: `jdbc:h2:mem:test`
 - Username: `sa`
 - Password: 빈 값
@@ -102,6 +103,7 @@ com.malgn
 ## 추가 구현 / 설계 포인트
 
 - DTO를 분리해서 엔티티를 API 응답으로 직접 노출하지 않도록 구성했습니다
+- 요청/응답 DTO는 단순 데이터 전달 객체이므로 Java `record`를 사용해 불변성과 간결성을 확보했습니다
 - 예외 응답을 일관된 JSON 포맷으로 통일했습니다
 - 시드 데이터는 SQL 대신 `DataInitializer`에서 생성해 암호화된 비밀번호를 안전하게 준비했습니다
 - Spring Security 7 / Boot 4 기준에 맞춰 stateless JWT 필터 체인을 구성했습니다
